@@ -6,6 +6,15 @@ const cylinderShecma=new mongoose.Schema({
     RemainingKg:Number,
     Kg:Number,
     Price:Number,
+    SalePrice:Number,
+    Expenses:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Expenses"
+    }],
+    Loan:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Loan"
+    }],
     Time:{
         type:String,
         default:new Date().toLocaleTimeString()

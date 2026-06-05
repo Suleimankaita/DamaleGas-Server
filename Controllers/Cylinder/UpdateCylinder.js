@@ -25,7 +25,7 @@ const UpdateCylinder=asynchandler(async(req,res)=>{
 
     res.status(201).json({
         data:CylinderFound,
-        status:false
+        status:true
     })
 
 

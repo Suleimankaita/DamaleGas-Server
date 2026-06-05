@@ -20,7 +20,7 @@ const Refreshtoken=asynchandler(async(req,res)=>{
              },
              process.env.ACCESS_TOKEN_SECRET,
              {
-                expiresIn:'1m'
+                expiresIn:'20m'
              }   
             )
             const refreshtoken=jwt.sign(

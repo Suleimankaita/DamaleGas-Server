@@ -1,9 +1,9 @@
 const express=require('express');
-const UpdateCylinder=require('../Controllers/Cylinder/UpdateCylinder')
+const Loan=require('../Controllers/Loan/AddLoan')
 const verify=require('../Middleware/Verify')
 const route=express();
 
 route.route('/')
-.patch(verify, UpdateCylinder)
+.post(verify, Loan)
 
 module.exports=route;

@@ -13,10 +13,11 @@ const GetListCylinder=asynchandler(async(req,res)=>{
         status:true,
         data:[]
     });
+    
 
     res.status(201).json({
         data:cylindersLists,
-        status:false
+        status:true
     })
 
 

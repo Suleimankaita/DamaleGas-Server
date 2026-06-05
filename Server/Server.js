@@ -53,6 +53,13 @@ app.use('/Api/UpdateCylinder',require('../Routes/UpdateCylinder'))
 
 app.use('/Api/SaleGas',require('../Routes/SaleGas'))
 
+app.use('/Api/AddLoan',require('../Routes/AddLoan'))
+
+app.use('/Api/UpdateLoan',require('../Routes/UpadateLoan'))
+
+app.use('/Api/GetLoan',require('../Routes/GetLoanData'))
+
+
 mongoose.connection.once("open",()=>{
     console.log("DB Connected")
     
