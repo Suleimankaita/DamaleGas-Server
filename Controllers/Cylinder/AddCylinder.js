@@ -22,17 +22,18 @@ const AddCylinder=asynchandler(async(req,res)=>{
     });
 
     const CylinderAdd=await Cylinder.create({
-    name,
+    name:name+" "+new Date().toISOString().split('T')[0],
     Price,
     SalePrice,
     Weight,
     Kg,
+    ActualPrice:Math.floor(Price/Kg),
     RemainingKg:Kg
     })
 
     res.status(201).json({
       'message':`New Cylinder is Added ${Kg}Kg`,
-      'status':false
+      'status':true
     })
 
 })

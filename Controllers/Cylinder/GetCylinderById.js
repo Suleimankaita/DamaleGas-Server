@@ -10,7 +10,7 @@ const GetCylinderById=asynchandler(async(req,res)=>{
     const checkfield=checkList({userId,id});
     if(!checkfield.success)return res.status(400).json({'message':`${checkfield.field} is Required`});
 
-    const CylinderFound=await Cylinders.findById(id);
+    const CylinderFound=await Cylinders.findById(id).populate('GasSaller');
 
     if(!CylinderFound)return res.status(400).json({
             status:false,

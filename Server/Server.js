@@ -53,11 +53,19 @@ app.use('/Api/UpdateCylinder',require('../Routes/UpdateCylinder'))
 
 app.use('/Api/SaleGas',require('../Routes/SaleGas'))
 
+app.use('/Api/GetSales',require('../Routes/GetSales'))
+
 app.use('/Api/AddLoan',require('../Routes/AddLoan'))
 
 app.use('/Api/UpdateLoan',require('../Routes/UpadateLoan'))
 
 app.use('/Api/GetLoan',require('../Routes/GetLoanData'))
+
+app.use('/Api/AddExpenses',require('../Routes/Expenses'))
+
+app.use('/Api/GetExpenses',require('../Routes/GetExpensesList'))
+
+app.use('/Api/GetExpenses',require('../Routes/GetExpensesById'))
 
 
 mongoose.connection.once("open",()=>{

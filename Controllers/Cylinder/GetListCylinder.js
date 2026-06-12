@@ -7,16 +7,39 @@ const GetListCylinder=asynchandler(async(req,res)=>{
     const checkfield=checkList({userId});
     if(!checkfield.success)return res.status(400).json({'message':`${checkfield.field} is Required`});
 
-    const cylindersLists=await Cylinders.find().exec();
+    const cylindersLists = await Cylinders.find()
+  .populate([
+    {
+      path: "GasSaller",
+      model: "CylinderSale",
+    },
+    {
+      path: "Loan",
+      model: "Loan",
+    },
+    {
+      path: "Expenses",
+      model: "Expenses",
+    }
+  ])
+  .exec();
+
 
     if(!cylindersLists.length)return res.status(400).json({
         status:true,
         data:[]
     });
     
+    
+
+    
+    const UpdateActivate=await Cylinders.updateMany({RemainingKg:0},{Active:false}).exec();
+
+    const ActiveCylinders=cylindersLists.filter(cylinder=>cylinder.Active==true);
 
     res.status(201).json({
-        data:cylindersLists,
+        data:ActiveCylinders,
+        AllCylinders:cylindersLists,
         status:true
     })
 

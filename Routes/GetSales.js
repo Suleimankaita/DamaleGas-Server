@@ -1,9 +1,9 @@
 const express=require('express');
-const SaleGas=require('../Controllers/Sales/SaleCylinder')
+const GetSale=require('../Controllers/Sales/GetSalesGas')
 const verify=require('../Middleware/Verify')
 const route=express();
 
 route.route('/')
-.post(verify, SaleGas)
+.get(verify, GetSale)
 
 module.exports=route;

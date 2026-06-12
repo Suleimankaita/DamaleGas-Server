@@ -6,7 +6,16 @@ const cylinderShecma=new mongoose.Schema({
     RemainingKg:Number,
     Kg:Number,
     Price:Number,
+    Profit:{
+        type:Number,
+        default:0,
+    },
+    Active:{
+        type:Boolean,
+        default:true
+    },
     SalePrice:Number,
+    ActualPrice:Number,
     Expenses:[{
         type:mongoose.Schema.Types.ObjectId,
         ref:"Expenses"
@@ -15,6 +24,10 @@ const cylinderShecma=new mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:"Loan"
     }],
+        GasSaller:[{
+            type:mongoose.Schema.Types.ObjectId,
+            ref:'CylinderSale'
+        }],
     Time:{
         type:String,
         default:new Date().toLocaleTimeString()
