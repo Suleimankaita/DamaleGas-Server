@@ -1,10 +1,8 @@
 const mongoose=require('mongoose');
 
-const ExpensesShecma=new mongoose.Schema({
-    Amount:Number,
-    Description:String,
-    category:String,
-    
+const Lost=new mongoose.Schema({
+    name:String,
+    Lost:Number,    
     Time:{
         type:String,
         default:new Date().toLocaleTimeString()
@@ -17,4 +15,4 @@ const ExpensesShecma=new mongoose.Schema({
     timestamps:true
 })
 
-module.exports=mongoose.model('Expenses',ExpensesShecma);
+module.exports=mongoose.model('CylinderLost',Lost);

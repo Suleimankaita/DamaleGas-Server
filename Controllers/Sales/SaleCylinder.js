@@ -8,13 +8,13 @@ const Sale=require('../../Model/Sales')
 const SaleCylinder=asynchandler(async(req,res)=>{
     
     const userId=req.id;
-    const {id}=req.query;
-    const { Price,Kg}= req.body;
+    // const {id}=req.query;
+    const { Price,Kg,id,cylinderId}= req.body;
     console.log(req.body)
-    const checkfield=checkList({userId,id,Price,Kg});
+    const checkfield=checkList({userId,cylinderId,Price,Kg});
     if(!checkfield.success)return res.status(400).json({'message':`${checkfield.field} is Required`});
 
-    const CylinderFound=await Cylinders.findOne({_id:id}).exec();
+    const CylinderFound=await Cylinders.findOne({_id:cylinderId}).exec();
 
     if(!CylinderFound)return res.status(400).json({
             status:false,

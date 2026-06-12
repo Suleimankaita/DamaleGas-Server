@@ -6,6 +6,7 @@ const cylinderShecma=new mongoose.Schema({
     RemainingKg:Number,
     Kg:Number,
     Price:Number,
+    
     Profit:{
         type:Number,
         default:0,
@@ -16,6 +17,12 @@ const cylinderShecma=new mongoose.Schema({
     },
     SalePrice:Number,
     ActualPrice:Number,
+    Lost:Number,    
+
+    // Lost:[{
+    //     type:mongoose.Schema.Types.ObjectId,
+    //     ref:"CylinderLost"
+    // }],
     Expenses:[{
         type:mongoose.Schema.Types.ObjectId,
         ref:"Expenses"

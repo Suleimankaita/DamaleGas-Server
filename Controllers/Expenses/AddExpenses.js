@@ -41,7 +41,7 @@ const asynchandler = require('express-async-handler');
  */
 const AddExpenses = asynchandler(async (req, res) => {
   // Extract Amount and Description from request body
-  const { Amount, Description } = req.body;
+  const { Amount, Description ,category} = req.body;
 
   // Get user ID from verified token (set by middleware)
   const userId = req.id;
@@ -73,7 +73,8 @@ const AddExpenses = asynchandler(async (req, res) => {
   // Create the new expense record with automatic time and date
   const ExpenseRecord = await Expenses.create({
     Amount,
-    Description
+    Description,
+    category
     // Time and Date are automatically set by model defaults
   });
 

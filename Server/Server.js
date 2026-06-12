@@ -53,6 +53,8 @@ app.use('/Api/UpdateCylinder',require('../Routes/UpdateCylinder'))
 
 app.use('/Api/SaleGas',require('../Routes/SaleGas'))
 
+app.use('/Api/Lost',require('../Routes/Lost'))
+
 app.use('/Api/GetSales',require('../Routes/GetSales'))
 
 app.use('/Api/AddLoan',require('../Routes/AddLoan'))
