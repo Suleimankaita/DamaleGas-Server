@@ -41,9 +41,10 @@ const SaleCylinder=asynchandler(async(req,res)=>{
 
     const Sale_id=await Sale.create({
         SalePrice:Price,
-        ActualPrice:Math.floor(CylinderFound.Price/CylinderFound.Kg),    
+        ActualPrice:CylinderFound.ActualPrice,    
+        profit:Math.floor(CylinderFound.SalePrice-CylinderFound.Price),    
         name:CylinderFound.name,
-        Kg:Math.floor(Kg)
+        Kg:Kg
     })
     const Prolfile_id=await Profile.findOne({_id:FoundAdmin.Profile});
     console.log(CylinderFound.ActualPrice)

@@ -15,6 +15,7 @@ const cylinderShecma=new mongoose.Schema({
         type:Boolean,
         default:true
     },
+    PurchasePrice:Number,
     SalePrice:Number,
     ActualPrice:Number,
     Lost:Number,    

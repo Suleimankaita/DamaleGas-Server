@@ -6,10 +6,10 @@ const asynchandler=require('express-async-handler')
 
 const AddCylinder=asynchandler(async(req,res)=>{
 
-    const {name,Weight,Kg,Price,SalePrice}=req.body;
+    const {name,Weight,Kg,Price,SalePrice,PurchasePrice}=req.body;
     
     const userId=req.id;
-    const Checklist=CheckField({name,Weight,Kg,Price,SalePrice})
+    const Checklist=CheckField({name,Weight,Kg,Price,SalePrice,PurchasePrice})
     if(!Checklist.success)return res.status(400).json({'message':'All Field Are Required', 'field': Checklist.field});
     
     const found=await Admin.findById(userId).lean()
@@ -28,7 +28,8 @@ const AddCylinder=asynchandler(async(req,res)=>{
     Weight,
     Kg,
     ActualPrice:Math.floor(Price/Kg),
-    RemainingKg:Kg
+    RemainingKg:Kg,
+    PurchasePrice
     })
 
     res.status(201).json({

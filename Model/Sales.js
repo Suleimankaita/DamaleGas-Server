@@ -5,7 +5,7 @@ const Sales=new mongoose.Schema({
     ActualPrice:Number,
     SalePrice:Number,
     Kg:Number,
-    
+    profit:Number,
     Time:{
         type:String,
         default:new Date().toLocaleTimeString()
