@@ -1,5 +1,5 @@
 
-const allowed=["http://localhost:3500/","http://localhost:5173"]
+const allowed=["http://localhost:3500/","http://localhost:5173",'https://damale-gas.vercel.app']
 
 const opt={
     origin:(origin,cb)=>{
